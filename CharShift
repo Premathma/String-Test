@@ -1,0 +1,46 @@
+package charShift;
+
+import java.util.Scanner;
+
+public class ShiftChar
+{
+	
+	    public static void main(String[] args) 
+	    {
+	        Scanner sc = new Scanner(System.in);
+	        System.out.print("Enter a Words: ");
+	        String input = sc.nextLine();
+	        sc.close();
+
+	        String shiftedString = shiftString(input);
+	        System.out.println("Shifted String: " + shiftedString);
+	    }
+
+	    public static String shiftString(String input) 
+	    {
+	        StringBuilder shiftedString = new StringBuilder();
+	    
+	    for (int i = 0; i < input.length(); i++) 
+        {
+         char OChar = input.charAt(i);
+         char shiftedChar = OChar;
+
+         if (Character.isUpperCase(OChar)) 
+            {
+             
+             shiftedChar = (char) (OChar - 3);
+             
+         } 
+          else if (Character.isLowerCase(OChar)) 
+             {
+              
+              shiftedChar = (char) (OChar - 2);
+             
+         }
+
+         shiftedString.append(shiftedChar);
+     }
+
+     return shiftedString.toString();
+ }
+}
